@@ -1,0 +1,11 @@
+<h1>Agenda de Contactos</h1>
+
+@if (estaCargando()) {
+  <app-loader />
+} @else {
+  <app-contact-form (alAgregar)="agregarContacto($event)" />
+  <app-contact-list
+    [listaContactos]="misContactos()"
+    (alEliminar)="eliminarContacto($event)"
+  />
+}

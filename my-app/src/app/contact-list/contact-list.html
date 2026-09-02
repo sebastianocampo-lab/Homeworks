@@ -1,0 +1,8 @@
+<ul>
+  @for (contacto of listaContactos; track contacto.nombre) {
+    <li>
+      <span>{{ contacto.nombre }} — {{ contacto.telefono }}</span>
+      <button (click)="alEliminar.emit(contacto)">Eliminar</button>
+    </li>
+  }
+</ul>
