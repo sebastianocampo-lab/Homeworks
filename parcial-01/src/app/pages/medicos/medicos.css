@@ -1,0 +1,14 @@
+.medicos {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.actual {
+  padding: 8px;
+}
+
+.nota {
+  font-size: 13px;
+  color: #666;
+}

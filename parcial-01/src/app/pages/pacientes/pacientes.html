@@ -1,0 +1,14 @@
+<section class="lista">
+  <h2>Pacientes en espera ({{ pacientes.length }})</h2>
+
+  @if (pacientes.length === 0) {
+    <p>No hay pacientes en espera</p>
+  } @else {
+    @for (p of pacientes; track p.id) {
+      <app-patient-card
+        [paciente]="p"
+        (onAtender)="atender($event)">
+      </app-patient-card>
+    }
+  }
+</section>

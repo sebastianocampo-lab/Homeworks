@@ -1,0 +1,14 @@
+<section class="medicos">
+  <h2>Médico de guardia</h2>
+
+  @if (medico) {
+    <div class="actual">
+      <strong>{{ medico.nombre }}</strong>
+      <p>{{ medico.especialidad }} (ID: {{ medico.id }})</p>
+    </div>
+  } @else {
+    <p>No hay médicos</p>
+  }
+
+  <p class="nota">Rota automáticamente cada 10 segundos</p>
+</section>

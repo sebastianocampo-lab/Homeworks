@@ -1,0 +1,12 @@
+import { Component, Input } from '@angular/core';
+import { Atencion } from '../../models/atencion';
+
+@Component({
+  selector: 'app-historial',
+  imports: [],
+  templateUrl: './historial.html',
+  styleUrl: './historial.css'
+})
+export class Historial {
+  @Input() historial: Atencion[] = [];
+}

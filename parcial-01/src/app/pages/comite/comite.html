@@ -1,0 +1,12 @@
+<section class="comite">
+  <h2>Comité administrativo</h2>
+
+  @if (miembro) {
+    <div class="actual">
+      <strong>{{ miembro.nombre }}</strong>
+      <p>{{ miembro.cargo }} (ID: {{ miembro.id }})</p>
+    </div>
+  } @else {
+    <p>No hay miembros</p>
+  }
+</section>

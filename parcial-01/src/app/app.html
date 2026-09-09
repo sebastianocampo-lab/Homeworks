@@ -1,0 +1,61 @@
+<div class="app">
+  <header>
+    <h1>Sistema Clínica</h1>
+  </header>
+
+  <nav>
+    <button (click)="cambiarVista('pacientes')">Pacientes</button>
+    <button (click)="cambiarVista('historial')">Historial</button>
+    <button (click)="cambiarVista('medicos')">Médicos</button>
+    <button (click)="cambiarVista('comite')">Comité</button>
+  </nav>
+
+  <main>
+    @if (vista() === 'pacientes') {
+      <section class="formulario">
+        <h2>Registrar paciente en espera</h2>
+
+        <input
+          type="text"
+          placeholder="ID (vacio = auto)"
+          [value]="id()"
+          (input)="id.set($any($event.target).value)">
+
+        <input
+          type="text"
+          placeholder="Nombre"
+          [value]="nombre()"
+          (input)="nombre.set($any($event.target).value)">
+
+        <input
+          type="text"
+          placeholder="Motivo de consulta"
+          [value]="motivo()"
+          (input)="motivo.set($any($event.target).value)">
+
+        <button (click)="agregarPaciente()">Agregar</button>
+      </section>
+
+      <app-pacientes 
+        [pacientes]="pacientes()"
+        (onAtender)="atenderPaciente($event)">
+      </app-pacientes>
+    }
+
+    @if (vista() === 'historial') {
+      <app-historial [historial]="historial()"></app-historial>
+    }
+
+    @if (vista() === 'medicos') {
+      <app-medicos [medico]="medicoActual()?.value"></app-medicos>
+    }
+
+    @if (vista() === 'comite') {
+      <app-comite [miembro]="miembroActual()?.value"></app-comite>
+      <div>
+        <button (click)="anteriorMiembro()">Anterior</button>
+        <button (click)="siguienteMiembro()">Siguiente</button>
+      </div>
+    }
+  </main>
+</div>

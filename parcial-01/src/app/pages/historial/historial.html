@@ -1,0 +1,13 @@
+<section class="historial">
+  <h2>Historial de atención ({{ historial.length }})</h2>
+
+  @if (historial.length === 0) {
+    <p>Aún no se ha atendido a nadie</p>
+  } @else {
+    @for (a of historial; track a.id) {
+      <div class="item">
+        <strong>{{ a.nombre }}</strong> — {{ a.motivo }} (ID: {{ a.id }})
+      </div>
+    }
+  }
+</section>

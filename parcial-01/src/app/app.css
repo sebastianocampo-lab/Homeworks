@@ -1,0 +1,16 @@
+.formulario {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.formulario input {
+  display: block;
+  margin-bottom: 8px;
+}
+
+nav button {
+  margin-right: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
