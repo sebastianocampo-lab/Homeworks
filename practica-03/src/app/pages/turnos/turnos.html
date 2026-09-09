@@ -1,0 +1,27 @@
+<div class="contenedor">
+  <h1>Sistema de Turnos</h1>
+
+  <div class="mensaje">
+    <p>{{ mensaje() }}</p>
+  </div>
+
+  <app-turn-display [turno]="turnoActual()?.value"></app-turn-display>
+
+  <button class="btn-principal" (click)="siguienteTurno()">
+    Llamar siguiente turno
+  </button>
+
+  <hr>
+
+  <div class="agregar">
+    <h3>Agregar turno</h3>
+    <input
+      type="text"
+      placeholder="Codigo (vacio = auto)"
+      [value]="nuevoTurno()"
+      (input)="nuevoTurno.set($any($event.target).value)">
+    <button (click)="agregarTurno()">Agregar</button>
+  </div>
+
+  <p class="info">Total en fila: {{ listaTurnos.size() }}</p>
+</div>

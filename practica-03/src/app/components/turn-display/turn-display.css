@@ -1,0 +1,22 @@
+.pantalla {
+  background: #263238;
+  color: white;
+  padding: 30px;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+.label {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #b0bec5;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.codigo {
+  margin: 0;
+  font-size: 60px;
+  font-weight: bold;
+  letter-spacing: 5px;
+}

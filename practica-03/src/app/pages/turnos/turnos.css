@@ -1,0 +1,61 @@
+.contenedor {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.mensaje {
+  background: #fff8dc;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.mensaje p {
+  margin: 0;
+  font-style: italic;
+}
+
+.btn-principal {
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 20px 0;
+  background: #1976d2;
+  color: white;
+  border: none;
+}
+
+.btn-principal:hover {
+  background: #1565c0;
+}
+
+hr {
+  margin: 30px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.agregar {
+  text-align: left;
+}
+
+.agregar input {
+  padding: 8px;
+  width: 70%;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+}
+
+.agregar button {
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.info {
+  color: #666;
+  font-size: 14px;
+  margin-top: 20px;
+}
