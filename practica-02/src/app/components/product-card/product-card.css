@@ -1,0 +1,21 @@
+.tarjeta {
+  flex: 1;
+  padding: 30px;
+  border: 2px solid #333;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tarjeta h2 {
+  margin: 0 0 15px;
+  font-size: 24px;
+}
+
+.precio {
+  font-size: 20px;
+  color: #2e7d32;
+  font-weight: bold;
+  margin: 0;
+}

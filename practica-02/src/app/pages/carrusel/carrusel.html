@@ -1,0 +1,14 @@
+<div class="contenedor">
+  <h1>Carrusel de Productos</h1>
+
+  <div class="carrusel">
+    <button (click)="anterior()">Anterior</button>
+
+    <app-product-card [producto]="productoActual()?.value"></app-product-card>
+
+    <button (click)="siguiente()">Siguiente</button>
+  </div>
+
+  <p class="info">Cambia automáticamente cada 3 segundos</p>
+  <p class="info">Total de productos: {{ productos.size() }}</p>
+</div>
