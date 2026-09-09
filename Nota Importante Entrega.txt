@@ -1,0 +1,1 @@
+Nota: Se elimino la carpeta que genera angular de node_modules por su tamaño no permitía ser colocada dentro de GIT
