@@ -1,0 +1,33 @@
+<div class="contenedor">
+  <h1>Registro de Estudiantes</h1>
+
+  <div class="formulario">
+    <h2>Nuevo estudiante</h2>
+
+    <input
+      type="text"
+      placeholder="Código"
+      [value]="codigo()"
+      (input)="codigo.set($any($event.target).value)">
+
+    <input
+      type="text"
+      placeholder="Nombre"
+      [value]="nombre()"
+      (input)="nombre.set($any($event.target).value)">
+
+    <input
+      type="number"
+      placeholder="Edad"
+      [value]="edad()"
+      (input)="edad.set(+$any($event.target).value)">
+
+    <button (click)="agregarEstudiante()">Agregar</button>
+  </div>
+
+
+  <app-student-list
+    [estudiantes]="estudiantes()"
+    (onDelete)="eliminarEstudiante($event)">
+  </app-student-list>
+</div>

@@ -1,0 +1,17 @@
+<div class="lista">
+  <h2>Estudiantes registrados ({{ estudiantes.length }})</h2>
+
+  @if (estudiantes.length === 0) {
+    <p>No hay estudiantes registrados.</p>
+  } @else {
+    @for (est of estudiantes; track est.codigo) {
+      <div class="tarjeta">
+        <div>
+          <strong>{{ est.nombre }}</strong>
+          <p>Código: {{ est.codigo }} | Edad: {{ est.edad }}</p>
+        </div>
+        <button (click)="eliminar(est.codigo)">Eliminar</button>
+      </div>
+    }
+  }
+</div>
