@@ -1,0 +1,23 @@
+<nav class="navbar">
+  <h1>Challenge 03</h1>
+  <div class="botones-nav">
+    <button
+      (click)="mostrarPlaylist()"
+      [class.activo]="paginaActiva() === 'playlist'">
+      Playlist
+    </button>
+    <button
+      (click)="mostrarHistory()"
+      [class.activo]="paginaActiva() === 'history'">
+       Historial
+    </button>
+  </div>
+</nav>
+
+<main>
+  @if (paginaActiva() === 'playlist') {
+    <app-playlist></app-playlist>
+  } @else if (paginaActiva() === 'history') {
+    <app-history></app-history>
+  }
+</main>

@@ -1,0 +1,30 @@
+.navbar {
+  background: #333;
+  color: white;
+  padding: 15px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.botones-nav button {
+  padding: 8px 16px;
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.botones-nav button.activo {
+  background: white;
+  color: #333;
+}
+
+main {
+  padding: 20px;
+}

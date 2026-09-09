@@ -1,0 +1,24 @@
+<div class="contenedor">
+  <h1>Historial del Navegador</h1>
+
+  @if (paginaActual()) {
+    <div class="pagina">
+      <p>Viendo ahora:</p>
+      <h2>{{ paginaActual()!.value }}</h2>
+    </div>
+  } @else {
+    <p>Sin historial.</p>
+  }
+
+  <div class="controles">
+    <button (click)="atras()" [disabled]="!puedeIrAtras()">Atrás</button>
+    <button (click)="adelante()" [disabled]="!puedeIrAdelante()">Adelante</button>
+  </div>
+
+  <h3>Historial completo ({{ historial.size() }} páginas)</h3>
+  <ul>
+    @for (pagina of paginas(); track pagina) {
+      <li [class.actual]="pagina === paginaActual()?.value">{{ pagina }}</li>
+    }
+  </ul>
+</div>

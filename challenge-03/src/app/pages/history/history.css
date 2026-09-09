@@ -1,0 +1,42 @@
+.contenedor {
+  max-width: 500px;
+  margin: 0 auto;
+  font-family: sans-serif;
+}
+
+.pagina {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.controles {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+li.actual {
+  font-weight: bold;
+}

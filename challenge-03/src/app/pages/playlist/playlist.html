@@ -1,0 +1,24 @@
+<div class="contenedor">
+  <h1>Reproductor de Canciones</h1>
+
+  @if (cancionActual()) {
+    <div class="actual">
+      <p>Reproduciendo ahora:</p>
+      <h2>{{ cancionActual()!.value }}</h2>
+    </div>
+  } @else {
+    <p>No hay canciones cargadas.</p>
+  }
+
+  <div class="controles">
+    <button (click)="siguiente()"> Siguiente</button>
+    <button (click)="reiniciar()">Reiniciar</button>
+  </div>
+
+  <h3>Playlist completa ({{ playlist.size() }} canciones)</h3>
+  <ul>
+    @for (cancion of canciones(); track cancion) {
+      <li>{{ cancion }}</li>
+    }
+  </ul>
+</div>
