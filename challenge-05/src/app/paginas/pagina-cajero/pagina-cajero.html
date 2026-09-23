@@ -1,0 +1,37 @@
+<section>
+  <header class="page-header">
+    <h2>Challenge 05 - Cola (Queue) del cajero automatico</h2>
+    <p>
+      La cola trabaja con FIFO, la primera persona que llega es la primera en ser atendida. Cada
+      persona tiene nombre, monto de retiro y una hora de llegada que asigna el sistema.
+    </p>
+  </header>
+
+  <div class="toolbar">
+    <button class="btn" (click)="atenderPersona()">dequeue()</button>
+    <button class="btn" (click)="verSiguiente()">peek()</button>
+    <button class="btn" (click)="imprimirEnConsola()">print()</button>
+    <span class="chip">size(): {{ cantidad }}</span>
+    <span class="chip">isEmpty(): {{ vacia }}</span>
+  </div>
+
+  @if (mensaje) {
+    <p class="message">{{ mensaje }}</p>
+  }
+
+  <div class="grid">
+    <app-formulario-persona (personaCreada)="agregarPersona($event)" />
+    <app-lista-fila [personas]="personas" />
+  </div>
+
+  @if (atendidos.length > 0) {
+    <div class="card attended">
+      <h3>Ya atendidos ({{ atendidos.length }})</h3>
+      <ul>
+        @for (persona of atendidos; track persona.id) {
+          <li>{{ persona.nombre }} - llego a las {{ persona.horaLlegada | date: 'HH:mm:ss' }}</li>
+        }
+      </ul>
+    </div>
+  }
+</section>

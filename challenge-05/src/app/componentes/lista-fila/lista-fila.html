@@ -1,0 +1,26 @@
+@if (personas.length === 0) {
+  <div class="card">
+    <p>No hay nadie en la fila del cajero.</p>
+  </div>
+} @else {
+  <div class="card">
+    <h3>Fila del cajero ({{ personas.length }})</h3>
+    <p class="hint">Ordenada por hora de llegada, el primero que llego se atiende primero.</p>
+
+    <ul class="item-list">
+      @for (persona of personasOrdenadas; track persona.id; let i = $index) {
+        <li class="item" [class.top]="i === 0">
+          <span class="turn">#{{ i + 1 }}</span>
+          <strong>{{ persona.nombre }}</strong>
+          @if (i === 0) {
+            <span class="badge">ATIENDE AHORA</span>
+          }
+          <div class="item-body">
+            <span><b>Retiro:</b> {{ persona.monto | currency: 'COP' : 'symbol-narrow' : '1.0-0' }}</span>
+            <span><b>Llegada:</b> {{ persona.horaLlegada | date: 'dd/MM/yyyy HH:mm:ss' }}</span>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+}

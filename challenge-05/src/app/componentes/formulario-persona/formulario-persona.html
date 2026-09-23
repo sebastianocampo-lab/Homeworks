@@ -1,0 +1,33 @@
+<form class="card form" (ngSubmit)="guardar()">
+  <h3>Nueva persona en el cajero</h3>
+
+  <label>
+    Nombre
+    <input
+      type="text"
+      name="nombre"
+      [(ngModel)]="nuevaPersona.nombre"
+      placeholder="Ej: Laura Restrepo"
+    />
+  </label>
+
+  <label>
+    Monto a retirar (COP)
+    <input
+      type="number"
+      name="monto"
+      [(ngModel)]="nuevaPersona.monto"
+      placeholder="Ej: 200000"
+      min="0"
+      step="10000"
+    />
+  </label>
+
+  <p class="hint">La hora de llegada no se digita, la pone el sistema.</p>
+
+  @if (error) {
+    <p class="error">{{ error }}</p>
+  }
+
+  <button type="submit" class="btn primary">enqueue(persona)</button>
+</form>
