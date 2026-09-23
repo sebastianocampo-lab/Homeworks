@@ -1,0 +1,29 @@
+@if (libros.length === 0) {
+  <div class="card">
+    <p>La pila esta vacia, agrega un libro en el formulario.</p>
+  </div>
+} @else {
+  <div class="card">
+    <h3>Pila de libros ({{ libros.length }})</h3>
+    <p class="hint">Se muestra desde el tope hacia la base.</p>
+
+    <ul class="item-list">
+      @for (libro of libros; track libro.id; let i = $index, ultimo = $last) {
+        <li class="item" [class.top]="i === 0">
+          <strong>{{ libro.nombre }}</strong>
+          @if (i === 0) {
+            <span class="badge">TOPE</span>
+          }
+          @if (ultimo && libros.length > 1) {
+            <span class="badge muted">BASE</span>
+          }
+          <div class="item-body">
+            <span><b>ISBN:</b> {{ libro.isbn }}</span>
+            <span><b>Author:</b> {{ libro.autor }}</span>
+            <span><b>Editorial:</b> {{ libro.editorial }}</span>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+}
