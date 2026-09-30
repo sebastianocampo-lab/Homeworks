@@ -1,0 +1,51 @@
+<section>
+  <header class="page-header">
+    <h2>Challenge 06 - Arbol binario</h2>
+    <p>
+      Los numeros menores se van a la izquierda y los mayores a la derecha. Los recorridos se
+      imprimen en la consola del navegador (F12) y tambien abajo en pantalla.
+    </p>
+  </header>
+
+  <div class="grid">
+    <form class="card form" (ngSubmit)="agregarSerie()">
+      <h3>Insertar numeros</h3>
+      <label>
+        Serie de numeros
+        <input type="text" name="serie" [(ngModel)]="serieTexto" placeholder="Ej: 15, 45, 90" />
+      </label>
+      <button type="submit" class="btn primary">insertar()</button>
+    </form>
+
+    <form class="card form" (ngSubmit)="buscar()">
+      <h3>Buscar un valor</h3>
+      <label>
+        Valor
+        <input type="number" name="buscado" [(ngModel)]="valorBuscado" placeholder="Ej: 35" />
+      </label>
+      <button type="submit" class="btn primary">existe()</button>
+    </form>
+  </div>
+
+  @if (mensaje) {
+    <p class="message">{{ mensaje }}</p>
+  }
+
+  <div class="toolbar">
+    <button class="btn" (click)="mostrarPreorden()">preorden()</button>
+    <button class="btn" (click)="mostrarInorden()">inorden()</button>
+    <button class="btn" (click)="mostrarPostorden()">postorden()</button>
+    <button class="btn" (click)="vaciarArbol()">Vaciar arbol</button>
+  </div>
+
+  @if (nombreRecorrido) {
+    <div class="card recorrido">
+      <b>{{ nombreRecorrido }}:</b> {{ recorrido.join(' - ') }}
+    </div>
+  }
+
+  <div class="card">
+    <h3>Arbol dibujado con d3</h3>
+    <app-dibujo-arbol [raiz]="arbol.raiz" [resaltado]="resaltado" [version]="version" />
+  </div>
+</section>
