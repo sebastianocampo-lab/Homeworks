@@ -1,0 +1,107 @@
+body {
+  margin: 0;
+  background: #f4f4f4;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* barra superior */
+.nav {
+  background: #1e3a8a;
+  color: white;
+  padding: 15px 20px;
+}
+
+.nav h1 {
+  margin: 0;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.tab {
+  margin-left: 15px;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* sidebar a la izquierda y la pagina a la derecha */
+.layout {
+  display: flex;
+  min-height: calc(100vh - 52px);
+}
+
+/* el que se estira es el componente, por eso el aside va con flex adentro */
+app-menu-lateral {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background: #2b2b2b;
+  padding-bottom: 20px;
+}
+
+.sidebar-titulo {
+  color: #999;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 18px 20px 10px;
+}
+
+app-opcion-menu {
+  display: block;
+}
+
+.enlace {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #eee;
+  text-decoration: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 20px;
+  font-size: 15px;
+  border-left: 4px solid transparent;
+  cursor: pointer;
+}
+
+.enlace:hover {
+  background: #3a3a3a;
+}
+
+.enlace.submenu {
+  background: #232323;
+  font-size: 14px;
+}
+
+.enlace.activo {
+  background: #3d5a80;
+  border-left-color: #5b9bd5;
+}
+
+.flecha {
+  font-size: 10px;
+}
+
+.pagina {
+  flex: 1;
+  padding: 25px 30px;
+}
+
+.pagina h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 600px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+}

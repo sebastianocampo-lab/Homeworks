@@ -1,0 +1,14 @@
+<div class="app">
+  <nav class="nav">
+    <h1>{{ titulo }}</h1>
+    <span class="tab active">{{ subtitulo }}</span>
+  </nav>
+
+  <div class="layout">
+    <app-menu-lateral />
+
+    <main class="pagina">
+      <router-outlet />
+    </main>
+  </div>
+</div>

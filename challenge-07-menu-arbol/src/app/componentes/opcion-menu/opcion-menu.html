@@ -1,0 +1,20 @@
+<a
+  class="enlace"
+  [class.submenu]="nivel > 0"
+  [style.padding-left.px]="20 + nivel * 20"
+  [routerLink]="'/' + nodo.valor.link"
+  routerLinkActive="activo"
+  [routerLinkActiveOptions]="{ exact: true }"
+  (click)="alternar()"
+>
+  {{ nodo.valor.titulo }}
+  @if (tieneHijos) {
+    <span class="flecha">{{ abierto ? '&#9650;' : '&#9660;' }}</span>
+  }
+</a>
+
+@if (tieneHijos && abierto) {
+  @for (hijo of nodo.hijos; track hijo.valor.link) {
+    <app-opcion-menu [nodo]="hijo" [nivel]="nivel + 1" />
+  }
+}
