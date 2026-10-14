@@ -3,7 +3,7 @@ Profesor Jonathan López,
 
 En todos los archivos que he subido eliminé la carpeta node_modules, ya que se genera automáticamente al instalar las dependencias de Angular y ocupa mucho espacio.
 
-Por lo tanto, para ejecutar cualquiera de los proyectos (Challenge, Prácticas y Parcial 1), es necesario abrir la terminal en la carpeta del proyecto y correr el comando:
+Por lo tanto, para ejecutar cualquiera de los proyectos (Challenge, Prácticas y Parciales), es necesario abrir la terminal en la carpeta del proyecto y correr el comando:
 
 npm install
 
