@@ -1,0 +1,110 @@
+$tinta: #333a45;
+$acento: #e07a3f;
+$borde: #e3e3e3;
+$fondo: #fafaf8;
+$espacio: 10px;
+
+@mixin fila-horizontal {
+  display: flex;
+  align-items: center;
+  gap: $espacio;
+}
+
+body {
+  margin: 0;
+  background: $fondo;
+  color: $tinta;
+}
+
+.nav {
+  @include fila-horizontal;
+  background: white;
+  border-bottom: 3px solid $acento;
+  padding: $espacio $espacio * 2;
+
+  .marca h1 {
+    margin: 0;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+  }
+
+  .marca .tab {
+    font-size: 13px;
+    color: gray;
+  }
+
+  .sesion {
+    @include fila-horizontal;
+    margin-left: auto;
+    font-size: 13px;
+
+    button {
+      background: $tinta;
+      color: white;
+      border: none;
+    }
+  }
+}
+
+.pagina {
+  padding: $espacio * 2;
+}
+
+.aviso-error {
+  color: #c0392b;
+  font-size: 14px;
+}
+
+.tarjeta-sesion {
+  max-width: 340px;
+  margin: 50px auto;
+  background: white;
+  border-top: 3px solid $acento;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  padding: $espacio * 2;
+}
+
+.contador {
+  font-size: 13px;
+  color: gray;
+}
+
+.arbol {
+  background: white;
+  border: 1px solid $borde;
+  max-width: 800px;
+  padding: $espacio 0;
+}
+
+.fila,
+.fila-nueva {
+  @include fila-horizontal;
+  padding: 7px $espacio;
+}
+
+.fila {
+  border-bottom: 1px dashed $borde;
+
+  .icono {
+    font-family: monospace;
+    color: $acento;
+    cursor: pointer;
+  }
+
+  .nombre {
+    cursor: pointer;
+  }
+
+  .autor {
+    font-size: 11px;
+    color: #9a9a9a;
+  }
+
+  .acciones {
+    margin-left: auto;
+  }
+}
+
+.campo {
+  max-width: 250px;
+}

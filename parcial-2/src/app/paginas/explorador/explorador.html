@@ -1,0 +1,18 @@
+<h2>Explorador de archivos</h2>
+<p class="contador">Documentos guardados: {{ nodos.results().length }}</p>
+
+@if (aviso()) {
+  <p class="aviso-error">{{ aviso() }}</p>
+}
+
+@if (nodos.error()) {
+  <p class="aviso-error">{{ nodos.error() }}</p>
+}
+
+@if (nodos.isPending()) {
+  <p class="cargando">Cargando...</p>
+}
+
+<div class="arbol">
+  <app-nodo-arbol [nodo]="raiz()" (crear)="alCrear($event)" (eliminar)="alEliminar($event)" />
+</div>

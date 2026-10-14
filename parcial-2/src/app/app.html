@@ -1,0 +1,19 @@
+<div class="app">
+  <nav class="nav">
+    <div class="marca">
+      <h1>{{ titulo }}</h1>
+      <span class="tab">{{ subtitulo }}</span>
+    </div>
+
+    @if (sesion.estaLogueado()) {
+      <div class="sesion">
+        <span class="usuario">{{ sesion.usuario() }}</span>
+        <button class="btn btn-sm btn-light" type="button" (click)="salir()">Salir</button>
+      </div>
+    }
+  </nav>
+
+  <main class="pagina">
+    <router-outlet />
+  </main>
+</div>

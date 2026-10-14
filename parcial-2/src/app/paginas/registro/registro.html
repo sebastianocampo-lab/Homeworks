@@ -1,0 +1,52 @@
+<div class="tarjeta-sesion">
+  <h2>Crear cuenta</h2>
+
+  <form (ngSubmit)="crearCuenta()">
+    <div class="mb-3">
+      <label class="form-label" for="correo">Email</label>
+      <input
+        id="correo"
+        class="form-control"
+        type="email"
+        name="correo"
+        [ngModel]="correo()"
+        (ngModelChange)="correo.set($event)"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="clave">Password</label>
+      <input
+        id="clave"
+        class="form-control"
+        type="password"
+        name="clave"
+        [ngModel]="clave()"
+        (ngModelChange)="clave.set($event)"
+        required
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="repetir">Repetir password</label>
+      <input
+        id="repetir"
+        class="form-control"
+        type="password"
+        name="repetir"
+        [ngModel]="repetir()"
+        (ngModelChange)="repetir.set($event)"
+        required
+      />
+    </div>
+
+    @if (aviso() || sesion.error()) {
+      <p class="aviso-error">{{ aviso() || sesion.error() }}</p>
+    }
+
+    <button class="btn btn-primary w-100" type="submit">Registrarme</button>
+  </form>
+
+  <p class="pie">Ya tienes cuenta? <a routerLink="/login">Inicia sesion</a></p>
+</div>

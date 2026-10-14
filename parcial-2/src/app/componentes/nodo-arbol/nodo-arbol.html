@@ -1,0 +1,53 @@
+<div class="fila" [style.padding-left.px]="nivel * 22">
+  <span class="icono" (click)="alternar()">{{ nodo.esCarpeta() ? '[+]' : '[-]' }}</span>
+
+  <span class="nombre" (click)="alternar()">{{ nodo.valor.nombre }}</span>
+
+  @if (nodo.valor.correo) {
+    <span class="autor">{{ nodo.valor.correo }}</span>
+  }
+
+  <span class="acciones">
+    @if (nodo.esCarpeta()) {
+      <button class="btn btn-sm btn-outline-primary" type="button" (click)="abrirFormulario('carpeta')">
+        Nueva carpeta
+      </button>
+      <button class="btn btn-sm btn-outline-primary" type="button" (click)="abrirFormulario('archivo')">
+        Nuevo archivo
+      </button>
+    }
+
+    @if (nodo.valor.id) {
+      <button class="btn btn-sm btn-outline-danger" type="button" (click)="eliminar.emit(nodo)">
+        Borrar
+      </button>
+    }
+  </span>
+</div>
+
+@if (creando()) {
+  <form class="fila-nueva" [style.padding-left.px]="(nivel + 1) * 22" (ngSubmit)="confirmarCreacion()">
+    <input
+      class="form-control form-control-sm campo"
+      type="text"
+      name="nombreNuevo"
+      [ngModel]="nombreNuevo()"
+      (ngModelChange)="nombreNuevo.set($event)"
+      required
+    />
+    <button class="btn btn-sm btn-primary" type="submit">Crear</button>
+    <button class="btn btn-sm btn-secondary" type="button" (click)="cancelar()">Cancelar</button>
+  </form>
+}
+
+@if (abierto) {
+  @for (hijo of nodo.hijos; track hijo.valor.id) {
+    <!-- los eventos de los hijos se vuelven a emitir para que lleguen a la pagina -->
+    <app-nodo-arbol
+      [nodo]="hijo"
+      [nivel]="nivel + 1"
+      (crear)="crear.emit($event)"
+      (eliminar)="eliminar.emit($event)"
+    />
+  }
+}
