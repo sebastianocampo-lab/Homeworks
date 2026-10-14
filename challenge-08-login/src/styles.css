@@ -1,0 +1,234 @@
+body {
+  margin: 0;
+  background: #f4f4f4;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* barra superior */
+.nav {
+  background: #1e3a8a;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.tab {
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* bloque de la derecha con los links y el usuario */
+.sesion {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.sesion a {
+  color: #cfd8f5;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.sesion a.activo {
+  color: white;
+  font-weight: bold;
+}
+
+.usuario {
+  font-size: 13px;
+  background: #2b4aa0;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+
+button {
+  background: #3d5a80;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2f4a6d;
+}
+
+.pagina {
+  padding: 25px 30px;
+}
+
+.pagina h2 {
+  margin-top: 0;
+}
+
+/* login */
+.login {
+  background: white;
+  max-width: 340px;
+  margin: 40px auto;
+  padding: 25px;
+  border: 1px solid #ddd;
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login label {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.login input {
+  padding: 8px;
+  margin-bottom: 14px;
+  border: 1px solid #bbb;
+  font-size: 14px;
+}
+
+.error {
+  color: #b00020;
+  font-size: 13px;
+  margin: 0 0 12px;
+}
+
+/* pagina del arbol */
+.buscador {
+  margin-bottom: 20px;
+}
+
+.buscador input {
+  padding: 8px;
+  width: 280px;
+  border: 1px solid #bbb;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.resultado {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.recorridos {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.caja {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  min-width: 260px;
+}
+
+.caja h3 {
+  margin-top: 0;
+  font-size: 15px;
+}
+
+.caja p {
+  margin: 3px 0;
+  font-size: 14px;
+}
+
+/* pagina del menu lateral */
+.layout {
+  display: flex;
+  border: 1px solid #ddd;
+  background: white;
+  min-height: 400px;
+}
+
+app-menu-lateral {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background: #2b2b2b;
+  padding-bottom: 20px;
+}
+
+.sidebar-titulo {
+  color: #999;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 18px 20px 10px;
+}
+
+app-opcion-menu {
+  display: block;
+}
+
+.enlace {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #eee;
+  text-decoration: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 20px;
+  font-size: 15px;
+  border-left: 4px solid transparent;
+  cursor: pointer;
+}
+
+.enlace:hover {
+  background: #3a3a3a;
+}
+
+.enlace.submenu {
+  background: #232323;
+  font-size: 14px;
+}
+
+.enlace.activo {
+  background: #3d5a80;
+  border-left-color: #5b9bd5;
+}
+
+.flecha {
+  font-size: 10px;
+}
+
+.seccion {
+  flex: 1;
+  padding: 20px 25px;
+}
+
+.seccion h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+}

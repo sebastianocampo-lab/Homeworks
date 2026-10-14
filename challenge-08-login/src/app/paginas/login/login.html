@@ -1,0 +1,32 @@
+<div class="login">
+  <h2>Iniciar sesion</h2>
+
+  <form (ngSubmit)="entrar()">
+    <label for="correo">Email</label>
+    <input
+      id="correo"
+      type="email"
+      name="correo"
+      placeholder="user@mail.com"
+      [ngModel]="correo()"
+      (ngModelChange)="correo.set($event)"
+      required
+    />
+
+    <label for="clave">Password</label>
+    <input
+      id="clave"
+      type="password"
+      name="clave"
+      [ngModel]="clave()"
+      (ngModelChange)="clave.set($event)"
+      required
+    />
+
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+
+    <button type="submit">Entrar</button>
+  </form>
+</div>
