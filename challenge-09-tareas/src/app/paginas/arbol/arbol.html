@@ -1,0 +1,36 @@
+<h2>Arbol n-ario del menu</h2>
+<p>
+  Es el mismo arbol del challenge anterior. Aqui se imprimen los dos recorridos en pantalla y
+  tambien quedan en la consola del navegador.
+</p>
+
+<div class="buscador">
+  <input
+    type="text"
+    name="texto"
+    placeholder="Buscar un item, ej: Seguridad y privacidad"
+    [ngModel]="texto()"
+    (ngModelChange)="texto.set($event)"
+  />
+  <button type="button" (click)="revisar()">Buscar</button>
+
+  @if (resultado()) {
+    <p class="resultado">{{ resultado() }}</p>
+  }
+</div>
+
+<div class="recorridos">
+  <div class="caja">
+    <h3>DFS (en profundidad)</h3>
+    @for (paso of profundidad; track $index) {
+      <p [style.padding-left.px]="paso.nivel * 18">{{ paso.titulo }}</p>
+    }
+  </div>
+
+  <div class="caja">
+    <h3>BFS (por niveles)</h3>
+    @for (paso of anchura; track $index) {
+      <p>Nivel {{ paso.nivel }} - {{ paso.titulo }}</p>
+    }
+  </div>
+</div>

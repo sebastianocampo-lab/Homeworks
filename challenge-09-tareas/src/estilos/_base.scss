@@ -1,0 +1,23 @@
+// variables que se repiten en todo el proyecto
+$azul: #1e3a8a;
+$azul-claro: #3d5a80;
+$gris-fondo: #f4f4f4;
+$gris-borde: #ddd;
+$rojo: #b00020;
+$espacio: 10px;
+
+@mixin centrado {
+  display: flex;
+  align-items: center;
+}
+
+@mixin tarjeta {
+  background: white;
+  border: 1px solid $gris-borde;
+  padding: $espacio * 2;
+}
+
+// para no andar calculando los paddings a mano
+@function doble($medida) {
+  @return $medida * 2;
+}

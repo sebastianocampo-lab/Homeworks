@@ -1,0 +1,250 @@
+@use 'estilos/base' as *;
+
+body {
+  margin: 0;
+  background: $gris-fondo;
+  color: #222;
+}
+
+/* barra superior */
+.nav {
+  @include centrado;
+  background: $azul;
+  color: white;
+  padding: 15px doble($espacio);
+  gap: 15px;
+
+  h1 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .tab {
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .sesion {
+    @include centrado;
+    margin-left: auto;
+    gap: 15px;
+
+    a {
+      color: #cfd8f5;
+      text-decoration: none;
+      font-size: 14px;
+
+      &.activo {
+        color: white;
+        font-weight: bold;
+      }
+    }
+
+    .usuario {
+      font-size: 13px;
+      background: #2b4aa0;
+      padding: 4px $espacio;
+      border-radius: 3px;
+    }
+  }
+}
+
+.pagina {
+  padding: 25px 30px;
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.aviso-error {
+  color: $rojo;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* login y registro */
+.tarjeta-sesion {
+  @include tarjeta;
+  max-width: 360px;
+  margin: 40px auto;
+
+  h2 {
+    margin-top: 0;
+    font-size: 20px;
+  }
+
+  .pie {
+    font-size: 13px;
+    margin: 15px 0 0;
+    text-align: center;
+  }
+}
+
+/* tareas */
+.contador {
+  font-size: 14px;
+  color: #555;
+}
+
+.fila-nueva {
+  display: flex;
+  gap: $espacio;
+  max-width: 500px;
+  margin-bottom: 15px;
+
+  button {
+    white-space: nowrap;
+  }
+}
+
+.cargando {
+  font-size: 14px;
+  color: #666;
+}
+
+.lista {
+  max-width: 600px;
+
+  .tarea {
+    @include centrado;
+    gap: $espacio;
+
+    .titulo {
+      flex: 1;
+    }
+
+    &.lista-hecha .titulo {
+      text-decoration: line-through;
+      color: #888;
+    }
+  }
+
+  .vacio {
+    color: #777;
+    font-size: 14px;
+  }
+}
+
+/* pagina del arbol */
+.buscador {
+  margin-bottom: doble($espacio);
+
+  input {
+    padding: 8px;
+    width: 280px;
+    border: 1px solid #bbb;
+    font-size: 14px;
+    margin-right: 8px;
+  }
+
+  .resultado {
+    font-size: 14px;
+    margin: $espacio 0 0;
+  }
+}
+
+.recorridos {
+  display: flex;
+  gap: doble($espacio);
+  flex-wrap: wrap;
+
+  .caja {
+    @include tarjeta;
+    min-width: 260px;
+
+    h3 {
+      margin-top: 0;
+      font-size: 15px;
+    }
+
+    p {
+      margin: 3px 0;
+      font-size: 14px;
+    }
+  }
+}
+
+/* pagina del menu lateral */
+.layout {
+  display: flex;
+  border: 1px solid $gris-borde;
+  background: white;
+  min-height: 400px;
+}
+
+app-menu-lateral {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background: #2b2b2b;
+  padding-bottom: doble($espacio);
+
+  .sidebar-titulo {
+    color: #999;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 18px doble($espacio) $espacio;
+  }
+}
+
+app-opcion-menu {
+  display: block;
+}
+
+.enlace {
+  @include centrado;
+  justify-content: space-between;
+  color: #eee;
+  text-decoration: none;
+  padding: 12px doble($espacio) 12px 0;
+  font-size: 15px;
+  border-left: 4px solid transparent;
+  cursor: pointer;
+
+  &:hover {
+    background: #3a3a3a;
+  }
+
+  &.submenu {
+    background: #232323;
+    font-size: 14px;
+  }
+
+  &.activo {
+    background: $azul-claro;
+    border-left-color: #5b9bd5;
+  }
+
+  .flecha {
+    font-size: 10px;
+  }
+}
+
+.seccion {
+  flex: 1;
+  padding: doble($espacio) 25px;
+
+  h2 {
+    margin-top: 0;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+  }
+}

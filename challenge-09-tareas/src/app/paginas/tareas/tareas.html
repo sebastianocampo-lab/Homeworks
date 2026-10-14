@@ -1,0 +1,60 @@
+<h2>Mis tareas</h2>
+<p class="contador">Pendientes: {{ tareas.pendientes() }} de {{ tareas.lista().length }}</p>
+
+<form class="fila-nueva" (ngSubmit)="agregar()">
+  <input
+    class="form-control"
+    type="text"
+    name="nueva"
+    placeholder="Escribe una tarea"
+    [ngModel]="nueva()"
+    (ngModelChange)="nueva.set($event)"
+    required
+  />
+  <button class="btn btn-primary" type="submit">Agregar</button>
+</form>
+
+@if (tareas.error()) {
+  <p class="aviso-error">{{ tareas.error() }}</p>
+}
+
+@if (tareas.cargando()) {
+  <p class="cargando">Cargando...</p>
+}
+
+<ul class="list-group lista">
+  @for (tarea of tareas.lista(); track tarea.id) {
+    <li class="list-group-item tarea" [class.lista-hecha]="tarea.hecha">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        [checked]="tarea.hecha"
+        (change)="tareas.alternar(tarea)"
+      />
+
+      @if (editando() === tarea.id) {
+        <input
+          class="form-control"
+          type="text"
+          name="editado"
+          [ngModel]="textoEditado()"
+          (ngModelChange)="textoEditado.set($event)"
+        />
+        <button class="btn btn-sm btn-primary" type="button" (click)="guardar(tarea)">
+          Guardar
+        </button>
+        <button class="btn btn-sm btn-secondary" type="button" (click)="cancelar()">Cancelar</button>
+      } @else {
+        <span class="titulo">{{ tarea.titulo }}</span>
+        <button class="btn btn-sm btn-secondary" type="button" (click)="abrirEdicion(tarea)">
+          Editar
+        </button>
+        <button class="btn btn-sm btn-danger" type="button" (click)="tareas.borrar(tarea.id!)">
+          Borrar
+        </button>
+      }
+    </li>
+  } @empty {
+    <li class="list-group-item vacio">Todavia no hay tareas.</li>
+  }
+</ul>

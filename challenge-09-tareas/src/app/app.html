@@ -1,0 +1,20 @@
+<div class="app">
+  <nav class="nav">
+    <h1>{{ titulo }}</h1>
+    <span class="tab">{{ subtitulo }}</span>
+
+    @if (sesion.estaLogueado()) {
+      <div class="sesion">
+        <a routerLink="/tareas" routerLinkActive="activo">Tareas</a>
+        <a routerLink="/arbol" routerLinkActive="activo">Arbol</a>
+        <a routerLink="/menu" routerLinkActive="activo">Menu</a>
+        <span class="usuario">{{ sesion.correo() }}</span>
+        <button class="btn btn-sm btn-light" type="button" (click)="salir()">Salir</button>
+      </div>
+    }
+  </nav>
+
+  <main class="pagina">
+    <router-outlet />
+  </main>
+</div>
