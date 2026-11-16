@@ -1,0 +1,33 @@
+<div class="pagina">
+  <h1>{{ titulo }}</h1>
+
+  <form class="busqueda" (ngSubmit)="buscar()">
+    <input
+      type="text"
+      name="texto"
+      placeholder="Busca un gif, ej: gato"
+      [ngModel]="texto()"
+      (ngModelChange)="texto.set($event)"
+    />
+    <button type="submit">Buscar</button>
+  </form>
+
+  @if (srv.cargando()) {
+    <p class="aviso">Cargando...</p>
+  }
+
+  @if (srv.error()) {
+    <p class="error">{{ srv.error() }}</p>
+  }
+
+  <div class="galeria">
+    @for (gif of srv.gifs(); track gif.id) {
+      <figure>
+        <img [src]="gif.images.fixed_height.url" [alt]="gif.title" />
+        <figcaption>{{ gif.title }}</figcaption>
+      </figure>
+    } @empty {
+      <p class="aviso">Escribe algo y dale buscar.</p>
+    }
+  </div>
+</div>
