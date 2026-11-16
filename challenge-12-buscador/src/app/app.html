@@ -1,0 +1,49 @@
+<div class="pagina">
+  <h1>{{ titulo }}</h1>
+
+  <form class="busqueda" (ngSubmit)="buscar()">
+    <input
+      type="text"
+      name="prefijo"
+      placeholder="Escribe un prefijo, ej: air"
+      [ngModel]="prefijo()"
+      (ngModelChange)="prefijo.set($event)"
+    />
+
+    <label for="k">Top</label>
+    <input
+      id="k"
+      type="number"
+      name="k"
+      min="1"
+      [ngModel]="k()"
+      (ngModelChange)="k.set(+$event)"
+    />
+
+    <button type="submit">Buscar</button>
+  </form>
+
+  <div class="columnas">
+    <div class="caja">
+      <h3>Top {{ k() }} mas populares</h3>
+      <ol>
+        @for (producto of mejores(); track producto.nombre) {
+          <li>{{ producto.nombre }} - {{ producto.popularidad }}</li>
+        } @empty {
+          <li class="vacio">Sin resultados para ese prefijo.</li>
+        }
+      </ol>
+    </div>
+
+    <div class="caja">
+      <h3>Todo lo que empieza por "{{ prefijo() }}"</h3>
+      <ul>
+        @for (producto of coincidencias(); track producto.nombre) {
+          <li>{{ producto.nombre }} - {{ producto.popularidad }}</li>
+        } @empty {
+          <li class="vacio">El Trie no encontro nada.</li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>
