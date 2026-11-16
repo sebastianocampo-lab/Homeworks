@@ -1,0 +1,77 @@
+$azul: #2f4858;
+$naranja: #e07a3f;
+$borde: #ddd;
+$espacio: 10px;
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+}
+
+.pagina {
+  padding: $espacio * 2;
+
+  h1 {
+    font-size: 19px;
+  }
+
+  h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+}
+
+.ciudades {
+  display: flex;
+  gap: $espacio;
+  margin-bottom: $espacio * 2;
+
+  button {
+    border: 1px solid $borde;
+    background: white;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-size: 14px;
+
+    &.activa {
+      background: $azul;
+      color: white;
+      border-color: $azul;
+    }
+  }
+}
+
+.lista {
+  margin: 0 0 $espacio * 2;
+  padding-left: 18px;
+  font-size: 14px;
+
+  li {
+    padding: 2px 0;
+  }
+}
+
+.grafo {
+  width: 100%;
+  max-width: 800px;
+  border: 1px solid $borde;
+
+  line {
+    stroke: #bbb;
+  }
+
+  circle.ciudad {
+    fill: $azul;
+  }
+
+  circle.persona {
+    fill: $naranja;
+  }
+
+  text {
+    fill: white;
+    font-size: 10px;
+    text-anchor: middle;
+  }
+}

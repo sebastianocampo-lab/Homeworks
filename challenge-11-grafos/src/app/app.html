@@ -1,0 +1,40 @@
+<div class="pagina">
+  <h1>{{ titulo }}</h1>
+
+  <div class="ciudades">
+    @for (ciudad of ciudades; track ciudad) {
+      <button
+        type="button"
+        [class.activa]="ciudad === seleccionada()"
+        (click)="elegir(ciudad)"
+      >
+        {{ ciudad }}
+      </button>
+    }
+  </div>
+
+  <h3>Viven en {{ seleccionada() }}</h3>
+  <ul class="lista">
+    @for (persona of personas(); track persona) {
+      <li>{{ persona }} - {{ edad(persona) }} anios</li>
+    } @empty {
+      <li>Nadie registrado en esta ciudad.</li>
+    }
+  </ul>
+
+  <svg class="grafo" viewBox="0 0 800 520">
+    @for (linea of lineas; track $index) {
+      <line [attr.x1]="linea.x1" [attr.y1]="linea.y1" [attr.x2]="linea.x2" [attr.y2]="linea.y2" />
+    }
+
+    @for (punto of puntosCiudad; track punto.nombre) {
+      <circle class="ciudad" [attr.cx]="punto.x" [attr.cy]="punto.y" r="34" />
+      <text [attr.x]="punto.x" [attr.y]="punto.y + 4">{{ punto.nombre }}</text>
+    }
+
+    @for (punto of puntosPersona; track punto.nombre) {
+      <circle class="persona" [attr.cx]="punto.x" [attr.cy]="punto.y" r="27" />
+      <text [attr.x]="punto.x" [attr.y]="punto.y + 4">{{ punto.nombre }}</text>
+    }
+  </svg>
+</div>
