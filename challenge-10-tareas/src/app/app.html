@@ -1,0 +1,16 @@
+<nav class="barra">
+  <h1>{{ titulo }}</h1>
+
+  @if (auth.session()) {
+    <div class="sesion">
+      <a routerLink="/tareas">Tareas</a>
+      <a routerLink="/perfil">Perfil</a>
+      <span>{{ auth.session()?.user?.email }}</span>
+      <button type="button" (click)="salir()">Salir</button>
+    </div>
+  }
+</nav>
+
+<main class="pagina">
+  <router-outlet />
+</main>

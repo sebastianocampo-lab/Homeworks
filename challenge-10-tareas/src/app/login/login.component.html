@@ -1,0 +1,14 @@
+<div class="tarjeta">
+  <h2>Entrar</h2>
+
+  <form (ngSubmit)="entrar()">
+    <input type="email" name="email" [(ngModel)]="email" placeholder="Correo" />
+    <input type="password" name="clave" [(ngModel)]="clave" placeholder="Contrasena" />
+    <button type="submit">Entrar</button>
+    <button type="button" (click)="registrar()">Crear cuenta</button>
+  </form>
+
+  @if (msg) {
+    <p class="msg">{{ msg }}</p>
+  }
+</div>

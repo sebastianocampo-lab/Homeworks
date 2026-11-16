@@ -1,0 +1,11 @@
+<h2>Mi perfil</h2>
+
+<p>Sube una foto al bucket de avatares.</p>
+
+<input type="file" accept="image/*" (change)="subir($event)" />
+
+@if (url()) {
+  <div class="avatar">
+    <img [src]="url()" alt="avatar" />
+  </div>
+}
