@@ -1,0 +1,35 @@
+<section class="panel">
+  <h2>Buscar canciones</h2>
+
+  <div class="fila-busqueda">
+    <input
+      type="text"
+      placeholder="Escribe el titulo..."
+      [ngModel]="texto"
+      (ngModelChange)="buscar($event)"
+    />
+    <button class="boton-borde" (click)="comprobar()">¿Existe?</button>
+  </div>
+
+  @if (mensaje()) {
+    <p class="aviso">{{ mensaje() }}</p>
+  }
+
+  <ul class="lista">
+    @for (cancion of resultados(); track cancion.titulo) {
+      <li>
+        <div class="info" (click)="ver(cancion)">
+          <strong>{{ cancion.titulo }}</strong>
+          <span>{{ cancion.artista }} · {{ cancion.reproducciones }} reproducciones</span>
+        </div>
+        <button class="boton" (click)="reproducir(cancion)">Escuchar</button>
+      </li>
+    } @empty {
+      @if (texto.trim()) {
+        <p class="nota">No hay canciones que empiecen por "{{ texto }}"</p>
+      } @else {
+        <p class="nota">Las sugerencias salen mientras escribes.</p>
+      }
+    }
+  </ul>
+</section>

@@ -1,0 +1,16 @@
+<section class="panel">
+  <h2>Top 5 mas escuchadas</h2>
+
+  <ol class="ranking">
+    @for (cancion of musica.ranking(); track cancion.titulo; let i = $index) {
+      <li [class]="'puesto-' + (i + 1)">
+        <span class="numero">{{ i + 1 }}</span>
+        <div class="info">
+          <strong>{{ cancion.titulo }}</strong>
+          <span>{{ cancion.artista }}</span>
+        </div>
+        <span class="veces">{{ cancion.reproducciones }}</span>
+      </li>
+    }
+  </ol>
+</section>

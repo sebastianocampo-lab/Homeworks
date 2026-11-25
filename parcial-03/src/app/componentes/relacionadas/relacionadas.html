@@ -1,0 +1,24 @@
+<section class="panel">
+  <h2>Canciones relacionadas</h2>
+
+  <select [ngModel]="musica.seleccionada()" (ngModelChange)="elegir($event)">
+    <option value="">Escoge una cancion</option>
+    @for (cancion of musica.canciones(); track cancion.titulo) {
+      <option [value]="cancion.titulo">{{ cancion.titulo }}</option>
+    }
+  </select>
+
+  @if (musica.seleccionada()) {
+    <p class="nota">Si te gusta {{ musica.seleccionada() }}, tambien te puede gustar:</p>
+
+    <div class="etiquetas">
+      @for (cancion of musica.relacionadas(musica.seleccionada()); track cancion.titulo) {
+        <button class="etiqueta" (click)="elegir(cancion.titulo)">
+          {{ cancion.titulo }} <small>{{ cancion.artista }}</small>
+        </button>
+      } @empty {
+        <p class="nota">Esta cancion todavia no tiene relacionadas.</p>
+      }
+    </div>
+  }
+</section>

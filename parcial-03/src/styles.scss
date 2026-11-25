@@ -1,0 +1,171 @@
+// variables
+$verde: #1db954;
+$negro: #222222;
+$gris: #777777;
+$borde: #dddddd;
+$base: 8px;
+
+// funcion
+@function espacio($n) {
+  @return $base * $n;
+}
+
+// mixins
+@mixin tarjeta {
+  background: white;
+  border: 1px solid $borde;
+  border-radius: 6px;
+  padding: espacio(2);
+}
+
+@mixin boton($color) {
+  background: $color;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: espacio(0.5) espacio(1.5);
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: $negro;
+}
+
+.encabezado {
+  background: $negro;
+  color: white;
+  padding: espacio(2) espacio(3);
+
+  h1 {
+    margin: 0;
+    color: $verde;
+
+    span {
+      font-size: 16px;
+      font-weight: normal;
+      color: white;
+    }
+  }
+
+  p {
+    margin: espacio(0.5) 0 0;
+    font-size: 13px;
+    color: $gris;
+  }
+}
+
+.tablero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: espacio(2);
+  max-width: 950px;
+  margin: espacio(3) auto;
+}
+
+.panel {
+  @include tarjeta;
+
+  h2 {
+    margin-top: 0;
+    font-size: 18px;
+  }
+}
+
+input,
+select {
+  width: 100%;
+  padding: espacio(1);
+  border: 1px solid $borde;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.boton {
+  @include boton($verde);
+}
+
+.boton-borde {
+  @include boton($gris);
+}
+
+.fila-busqueda {
+  display: flex;
+  gap: espacio(1);
+}
+
+.nota,
+.aviso {
+  font-size: 13px;
+  color: $gris;
+}
+
+.aviso {
+  color: $verde;
+}
+
+.lista,
+.ranking {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: espacio(1);
+    padding: espacio(1) 0;
+    border-bottom: 1px solid $borde;
+  }
+}
+
+.info {
+  flex: 1;
+
+  span {
+    display: block;
+    font-size: 13px;
+    color: $gris;
+  }
+}
+
+.numero {
+  width: espacio(3);
+  text-align: center;
+  font-weight: bold;
+}
+
+.veces {
+  color: $verde;
+}
+
+// los tres primeros puestos un poco mas grandes
+@for $i from 1 through 3 {
+  .puesto-#{$i} .numero {
+    font-size: 24px - $i * 2;
+    color: $verde;
+  }
+}
+
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: espacio(1);
+}
+
+.etiqueta {
+  @include boton(white);
+  color: $negro;
+  border: 1px solid $verde;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: espacio(1.5);
+
+  label {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,31 @@
+<section class="panel">
+  <h2>Agregar cancion</h2>
+
+  <form class="formulario" (ngSubmit)="guardar()">
+    <label>
+      Titulo
+      <input type="text" name="titulo" [(ngModel)]="titulo" />
+    </label>
+
+    <label>
+      Artista
+      <input type="text" name="artista" [(ngModel)]="artista" />
+    </label>
+
+    <label>
+      Se parece a
+      <select name="relacionada" [(ngModel)]="relacionada">
+        <option value="">Ninguna</option>
+        @for (cancion of musica.canciones(); track cancion.titulo) {
+          <option [value]="cancion.titulo">{{ cancion.titulo }}</option>
+        }
+      </select>
+    </label>
+
+    <button type="submit" class="boton">Agregar</button>
+  </form>
+
+  @if (mensaje()) {
+    <p class="aviso">{{ mensaje() }}</p>
+  }
+</section>
